@@ -17,7 +17,6 @@ Here is a snippet from [the flavor profile for es6](flavor_profiles/javascript/e
             "name": "forEach",
             "query": "call[callee=member[prop=#forEach]]"
         },
-    // ...
 ```
 
 And JSON will produced from running over a codebase using that profile.  Counts will gather and count occurrences of matching nodes across files.
@@ -27,12 +26,11 @@ And JSON will produced from running over a codebase using that profile.  Counts 
   "es6 usage": {
     "counts": {
       "forEach": 4,
-      //...
 ```
+
 ## TODO
-[ ] - Support multiple languages by pluggable Tasters for querying AST.
-[ ] - Allow profiles to specify taster, but fallback to the default
-[ ] -
+- [ ] - Support multiple languages by pluggable Tasters for querying AST.
+- [ ] - Allow profiles to specify taster, but fallback to the default.
 
 ## Contributing
 Not quite yet...but if you are interested, give me a ping.
