@@ -6,15 +6,26 @@ This is very, very rough at the moment.
 ## Flavor Profiles
 The idea is that you can run different flavor profiles to help define specific technology.
 
-For instance here is a snippet `profiles/javascript/es2015.json`
+### counts
+Here is a snippet from [the flavor profile for es6](flavor_profiles/javascript/es6.json)
 
 ```json
 {
+    "name": "es6 usage",
     "counts": [
         {
-            "name": "Array.prototype.forEach usage",
+            "name": "forEach",
             "query": "call[callee=member[prop=#forEach]]"
-        }
-    ]
-}
+        },
+    // ...
+```
+
+And JSON will produced from running over a codebase using that profile.  Counts will gather and count occurrences of matching nodes across files.
+
+```json
+{
+  "es6 usage": {
+    "counts": {
+      "forEach": 4,
+      //...
 ```
