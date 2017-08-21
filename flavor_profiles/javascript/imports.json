@@ -1,0 +1,25 @@
+{
+    "name": "Imported",
+    "counts": [
+        {
+            "name": "import",
+            "query": "import-dec"
+        },
+        {
+            "name": "require",
+            "query": "call[callee=#require]"
+        }
+
+    ],
+    "values": [
+        {
+            "name": "external requires",
+            "query": "call[callee=#require] str[value~=/^[^.]/]"
+        },
+        {
+            "name": "external imports",
+            "query": "import-dec str[value~=/^[^.]/]"
+        }
+
+    ]
+}

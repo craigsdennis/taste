@@ -1,0 +1,30 @@
+{
+    "name": "es6 usage",
+    "counts": [
+        {
+            "name": "forEach",
+            "query": "call[callee=member[prop=#forEach]]"
+        },
+        {
+            "name": "map",
+            "query": "call[callee=member[prop=#map]]"
+        },
+        {
+            "name": "filter",
+            "query": "call[callee=member[prop=#filter]]"
+        },
+        {
+            "name": "reduce",
+            "query": "call[callee=member[prop=#reduce]]"
+        },
+        {
+            "name": "rest elements for arguments",
+            "query": "rest-element"
+        },
+        {
+            "name": "arrow functions",
+            "query": "arrow"
+        }
+
+    ]
+}
