@@ -76,18 +76,24 @@ function combineFilePathResults(filePathResults) {
     }, {})
 }
 
-const flavors = [es6Flavor, importsFlavor];
-// Example of changing the Current Working Dir to a node module
-const options = {
-    ignore: ['**/node_modules/**'],
-    cwd: path.join(process.cwd(), 'node_modules', 'glob')
-};
-glob('**/*.js', options, (err, relativeFilePaths) => {
+
+
+function processCodeBase(root, flavors) {
+    console.log("Processing root", root);
+    const options = {
+        ignore: ['**/node_modules/**'],
+        cwd: root
+    }
+    const relativeFilePaths = glob.sync('**/*.js', options);
     console.log("Relative file paths", relativeFilePaths);
-    const filePaths = relativeFilePaths.map(filePath => path.join(options.cwd, filePath));
+    const filePaths = relativeFilePaths.map(filePath => path.join(root, filePath));
     const byFilePath = processFilePaths(filePaths, flavors);
-    const results = combineFilePathResults(byFilePath);
+    return combineFilePathResults(byFilePath);
+}
 
-    console.log(JSON.stringify(results, null, 2));
-});
-
+// EXAMPLE USAGE
+const flavors = [es6Flavor, importsFlavor];
+// Get a known module
+const root = path.join(process.cwd(), 'node_modules', 'glob');
+const results = processCodeBase(root, flavors);
+console.log(JSON.stringify(results, null, 4));
