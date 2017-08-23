@@ -44,13 +44,6 @@ function processFilePath(filePath, flavors) {
     return processFlavors(code, flavors);
 }
 
-function processFilePaths(filePaths, flavors) {
-    return filePaths.reduce((results, filePath) => {
-        results[filePath] = processFilePath(filePath, flavors);
-        return results;
-    }, {});
-}
-
 function combineFilePathResults(filePathResults) {
     return Object.keys(filePathResults).reduce((results, filePath) => {
         if (Object.keys(results).length == 0) {
@@ -86,8 +79,10 @@ function processCodeBase(root, flavors) {
     }
     const relativeFilePaths = glob.sync('**/*.js', options);
     console.log("Relative file paths", relativeFilePaths);
-    const filePaths = relativeFilePaths.map(filePath => path.join(root, filePath));
-    const byFilePath = processFilePaths(filePaths, flavors);
+    const byFilePath = relativeFilePaths.reduce((results, filePath) => {
+        results[filePath] = processFilePath(path.join(root, filePath), flavors);
+        return results;
+    }, {});
     return combineFilePathResults(byFilePath);
 }
 
