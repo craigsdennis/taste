@@ -82,9 +82,9 @@ const options = {
     ignore: ['**/node_modules/**'],
     cwd: path.join(process.cwd(), 'node_modules', 'glob')
 };
-glob('**/*.js', options, (err, filePaths) => {
-    console.log("Relative file paths", filePaths);
-    filePaths = filePaths.map(fp => path.join(options.cwd, fp));
+glob('**/*.js', options, (err, relativeFilePaths) => {
+    console.log("Relative file paths", relativeFilePaths);
+    const filePaths = relativeFilePaths.map(filePath => path.join(options.cwd, filePath));
     const byFilePath = processFilePaths(filePaths, flavors);
     const results = combineFilePathResults(byFilePath);
 
