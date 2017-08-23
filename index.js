@@ -1,5 +1,7 @@
 const fs = require('fs');
+const glob = require('glob');
 const grasp = require('grasp');
+const path = require('path');
 const es6Flavor = require('./flavor_profiles/javascript/es6.json');
 const importsFlavor = require('./flavor_profiles/javascript/imports.json');
 
@@ -75,9 +77,17 @@ function combineFilePathResults(filePathResults) {
 }
 
 const flavors = [es6Flavor, importsFlavor];
-const filePaths = ['./test/samples/es6-sample.js', './index.js'];
+// Example of changing the Current Working Dir to a node module
+const options = {
+    ignore: ['**/node_modules/**'],
+    cwd: path.join(process.cwd(), 'node_modules', 'glob')
+};
+glob('**/*.js', options, (err, filePaths) => {
+    console.log("Relative file paths", filePaths);
+    filePaths = filePaths.map(fp => path.join(options.cwd, fp));
+    const byFilePath = processFilePaths(filePaths, flavors);
+    const results = combineFilePathResults(byFilePath);
 
-const byFilePath = processFilePaths(filePaths, flavors);
-const results = combineFilePathResults(byFilePath);
+    console.log(JSON.stringify(results, null, 2));
+});
 
-console.log(JSON.stringify(results, null, 2));

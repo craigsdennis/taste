@@ -29,8 +29,8 @@ And JSON will produced from running over a codebase using that profile.  Counts 
 ```
 
 ## TODO
-- [ ] Support globs
-- [ ] Add ignoring
+- [x] Support globs
+- [ ] Add better ignoring
 - [ ] Support multiple languages by pluggable Tasters for querying AST.
 - [ ] Allow profiles to specify taster, but fallback to the default.
 
