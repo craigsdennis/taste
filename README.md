@@ -29,8 +29,10 @@ And JSON will produced from running over a codebase using that profile.  Counts 
 ```
 
 ## TODO
-- [ ] - Support multiple languages by pluggable Tasters for querying AST.
-- [ ] - Allow profiles to specify taster, but fallback to the default.
+- [ ] Support globs
+- [ ] Add ignoring
+- [ ] Support multiple languages by pluggable Tasters for querying AST.
+- [ ] Allow profiles to specify taster, but fallback to the default.
 
 ## Contributing
 Not quite yet...but if you are interested, give me a ping.
