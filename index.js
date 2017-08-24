@@ -8,4 +8,4 @@ const flavors = [es6Flavor, importsFlavor];
 // Get a known module
 const root = path.join(process.cwd(), 'node_modules', 'glob');
 const results = processor.taste(root, flavors);
-console.log(JSON.stringify(results, null, 4));
+console.log(JSON.stringify(results, null, 2));

@@ -49,13 +49,20 @@ And the results all require statements in the codebase that are external (do not
 
 ```json
 "Imported": {
-        "values": {
-            "external requires": [
-                "fs",
-                "glob",
-                "grasp",
-                "path"
-            ],
+    "values": {
+      "external requires": [
+        "assert",
+        "events",
+        "fs",
+        "fs.realpath",
+        "inflight",
+        "inherits",
+        "minimatch",
+        "once",
+        "path",
+        "path-is-absolute",
+        "util"
+      ],
 ```
 
 ## TODO
