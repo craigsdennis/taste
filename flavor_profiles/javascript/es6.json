@@ -24,7 +24,70 @@
         {
             "name": "arrow functions",
             "query": "arrow"
+        },
+        {
+            "name": "classes",
+            "query": "class-dec"
+        },
+        {
+            "name": "creating promises",
+            "query": "new[callee=#Promise]"
+        },
+        {
+            "name": "using promise pattern",
+            "query": "call[callee=member[prop=#then]]"
+        },
+        {
+            "name": "catching promises",
+            "query": "call[callee=member[prop=#catch]]"
+        },
+        {
+            "name": "creating a Map",
+            "query": "new[callee=#Map]"
+        },
+        {
+            "name": "creating a WeakMap",
+            "query": "new[callee=#WeakMap]"
+        },
+        {
+            "name": "creating a Set",
+            "query": "new[callee=#Set]"
+        },
+        {
+            "name": "creating a WeakSet",
+            "query": "new[callee=#WeakSet]"
+        },
+        {
+            "name": "export default",
+            "query": "export-default-specifier"
+        },
+        {
+            "name": "export *",
+            "query": "export-namespace-specifier"
+        },
+        {
+            "name": "template strings",
+            "query": "template-literal"
+        },
+        {
+            "name": "for of",
+            "query": "for-of"
+        },
+        {
+            "name": "yield",
+            "query": "yield"
+        },
+        {
+            "name": "generator function",
+            "query": "func-dec[generator=true]"
+        },
+        {
+            "name": "let",
+            "query": "var-decs[kind=let]"
+        },
+        {
+            "name": "const",
+            "query": "var-decs[kind=const]"
         }
-
     ]
 }
