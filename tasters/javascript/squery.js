@@ -1,11 +1,13 @@
 const grasp = require('grasp');
 
 function search(query, code) {
-    return grasp.search('squery', query, code);
+    const nodes = grasp.search('squery', query, code) || [];
+    return nodes;
 }
 
 function count(query, code) {
-    return search(query, code).length;
+    const nodes = search(query, code);
+    return nodes.length;
 }
 
 module.exports = {
