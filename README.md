@@ -33,7 +33,7 @@ And JSON will produced from running over a codebase using that profile.  Counts 
 #### values
 Pulls values from AST and produces a unique list of sorted values
 
-Here is a snippet from [the flavor profile for es6](flavor_profiles/javascript/imported.json)
+Here is a snippet from [the flavor profile for imports](flavor_profiles/javascript/imports.json)
 
 ```json
 {
