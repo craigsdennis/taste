@@ -7,6 +7,8 @@ This is very, very rough at the moment.  t**AST**e, get it?
 The idea is that you can run different flavor profiles to help define specific technology.
 
 ### counts
+Gathers counts of matches
+
 Here is a snippet from [the flavor profile for es6](flavor_profiles/javascript/es6.json)
 
 ```json
@@ -26,6 +28,34 @@ And JSON will produced from running over a codebase using that profile.  Counts 
   "es6 usage": {
     "counts": {
       "forEach": 4,
+```
+
+#### values
+Pulls values from AST and produces a unique list of sorted values
+
+Here is a snippet from [the flavor profile for es6](flavor_profiles/javascript/imported.json)
+
+```json
+{
+    "name": "Imported",
+    "values": [
+        {
+            "name": "external requires",
+            "query": "call[callee=#require] str[value~=/^[^.]/]"
+        },
+```
+
+And the results all require statements in the codebase that are external (do not start with a .)
+
+```json
+"Imported": {
+        "values": {
+            "external requires": [
+                "fs",
+                "glob",
+                "grasp",
+                "path"
+            ],
 ```
 
 ## TODO
